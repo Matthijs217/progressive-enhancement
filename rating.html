@@ -7,14 +7,28 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
-			
-			/* Hint: als je de sterren als achtergrond voor iets wilt gebruiken, zijn dit de SVG's die je kunt gebruiken:
-			   url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path></svg>')
-			   url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path></svg>')
-			*/
+			input[type="radio"] {
+				display: none;
+			}
 
-			/* Hint: met Grid Layout kun je elementen over elkaar heen leggen */
+			input[type="radio"] + label {
+				display: inline-block;
+				width: 24px;
+				height: 24px;
+				background-image: url('assets/star.svg');
+				background-size: cover;
+				cursor: pointer;
+				&:hover {
+					background-image: url('assets/star-filled.svg');
+				}
+			}
+
+			input[type="radio"]:checked + label {
+    			background-image: url('assets/star-filled.svg');
+			}
+
+			/* https://stackoverflow.com/questions/25793716/how-to-change-style-of-radio-and-checkbox-input */
+
 		</style>
 	</head>
 	<body>
@@ -33,6 +47,20 @@
 
 		<!-- Waarschijnlijk wil je je rating ooit opslaan, dus heb je een formulier nodig -->
 		<form method="post">
+			<input type="radio" id="ster-1" value="1" name="rating"/>
+			<label for="star2"></label>
+
+			<input type="radio" id="ster-2" value="2" name="rating"/>
+			<label for="star2"></label>
+
+			<input type="radio" id="ster-3" value="3" name="rating"/>
+			<label for="star3"></label>
+
+			<input type="radio" id="ster-4" value="4" name="rating"/>
+			<label for="star4"></label>
+
+			<input type="radio" id="ster-5 " value="5" name="rating"/>
+			<label for="star5"></label>
 
 			<!-- Hint: hoeveel verschillende ratings kun je geven? -->
 
