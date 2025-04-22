@@ -30,10 +30,24 @@
 				transition: .4s;
 				border-radius: 34px;
 			}
+			/* button */
+			.slider::before {
+				position: absolute;
+				content: "";
+				height: 26px;
+				width: 26px;
+				background-color: white;
+				transition: .4s;
+				border-radius: 50%;
+			}
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
-
-			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
+			input:checked + .slider:before {
+				transform: translateX(34px);
+			}
+			input:checked + .slider {
+				background-color: #21f333;
+			}
+			
 		</style>
 	</head>
 	<body>
