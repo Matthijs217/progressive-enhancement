@@ -7,7 +7,29 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
+			.switch	{
+				position: relative;
+				display: block;
+				width: 60px;
+				background-color: gray;
+				border-radius: 30px;
+			}
+			.switch input {
+				opacity: 0;
+				width: 0;
+				height: 0;
+			}
+			.slider {
+				position: absolute;
+				cursor: pointer;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: #ccc;
+				transition: .4s;
+				border-radius: 34px;
+			}
 
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
