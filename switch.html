@@ -7,52 +7,66 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
-			.switch	{
-				display: inline-block;
-				background-color: gray;
-				cursor: pointer;
+
+			input {
+				appearance: none;
+				position: absolute;
+				inset: 0;
+				border-radius: inherit;
 			}
-			.switch input {
+	
+			label {
 				--switch-width: 80px;
 				--thumb-width: 32px;
 				--switch-padding: 3px;
-
-				appearance: none;
+				display: inline-block;
 				width: var(--switch-width);
-				background-color: #ff03;
-				border-radius: 2em;
-				padding: var(--switch-padding);
+				height: 36px;
+				background-color: #ccc;
+				border-radius: 26px;
+				position: relative;
 				cursor: pointer;
-
+				transition: background-color 0.3s;
 			}
-			/* button */
-			.label::before {
-				position: absolute;
+	
+			label::before {
 				content: "";
-				height: 26px;
-				width: 26px;
+				position: absolute;
+				width: var(--thumb-width);
+				height: var(--thumb-width);
 				background-color: white;
-				transition: .4s;
 				border-radius: 50%;
+				top: 2px;
+				left: var(--switch-padding);
+				transition: transform 0.3s;
 			}
-
-			input:checked + label:before {
-				transform: translateX(34px);
+	
+			label:has(#toggle:checked) {
+				background-color: #6dd2af;
 			}
-			input:checked + label {
-				background-color: #21f333;
+	
+			.switch:has(#toggle:checked)::before {
+				content: "aan";
+				display: grid;
+				place-items: center;
+				font-size: calc(var(--thumb-width) * .33);
+				font-weight: bold;
+				transform: translateX(calc(var(--switch-width) - var(--thumb-width) - var(--switch-padding) * 2));
 			}
-			
 		</style>
 	</head>
+	
 	<body>
 		<h1>Switch control</h1>
-		
-		<label class="switch">
-			<input type="checkbox" id="switch1" name="switch1" value="aan-uit">
+	
+		<label aria-label="toggle-switch" class="switch">
+			<input type="checkbox" id="toggle">
 		</label>
-
-		<details>
+	
+		<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
+				 Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
+	
+		<details open>
 			<summary>Demo video</summary>
 			<video src="assets/switch.mp4" width="119" height="67" controls muted autoplay loop>
 				<a href="assets/switch.mp4">assets/switch.mp4</a>
