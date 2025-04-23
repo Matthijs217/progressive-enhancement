@@ -8,28 +8,25 @@
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
 			.switch	{
-				position: relative;
-				display: block;
-				width: 60px;
+				display: inline-block;
 				background-color: gray;
-				border-radius: 30px;
+				cursor: pointer;
 			}
 			.switch input {
-				opacity: 0;
-			}
-			.slider {
-				position: absolute;
+				--switch-width: 80px;
+				--thumb-width: 32px;
+				--switch-padding: 3px;
+
+				appearance: none;
+				width: var(--switch-width);
+				background-color: #ff03;
+				border-radius: 2em;
+				padding: var(--switch-padding);
 				cursor: pointer;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-color: #ccc;
-				transition: .4s;
-				border-radius: 34px;
+
 			}
 			/* button */
-			.slider::before {
+			.label::before {
 				position: absolute;
 				content: "";
 				height: 26px;
@@ -39,10 +36,10 @@
 				border-radius: 50%;
 			}
 
-			input:checked + .slider:before {
+			input:checked + label:before {
 				transform: translateX(34px);
 			}
-			input:checked + .slider {
+			input:checked + label {
 				background-color: #21f333;
 			}
 			
@@ -53,7 +50,6 @@
 		
 		<label class="switch">
 			<input type="checkbox" id="switch1" name="switch1" value="aan-uit">
-			<span class="slider"></span>
 		</label>
 
 		<details>
